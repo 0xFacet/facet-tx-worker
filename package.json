@@ -1,0 +1,21 @@
+{
+	"name": "facet-tx-worker",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"test": "vitest",
+		"cf-typegen": "wrangler types"
+	},
+	"devDependencies": {
+		"@0xfacet/sdk": "^0.3.1",
+		"@cloudflare/vitest-pool-workers": "^0.6.4",
+		"@cloudflare/workers-types": "^4.20250303.0",
+		"typescript": "^5.5.2",
+		"viem": "^2.23.6",
+		"vitest": "~2.1.9",
+		"wrangler": "^3.112.0"
+	}
+}
