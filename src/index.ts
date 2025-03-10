@@ -172,8 +172,21 @@ export default {
         fctMintAmount
       );
 
+      // Try to fetch the transaction to verify the hash is valid
+      try {
+        const facetTransaction = await l2PublicClient.getTransaction({
+          hash: facetTransactionHash,
+        });
+        
+        if (!facetTransaction) {
+          return new Response(JSON.stringify({ error: "Facet transaction not found" }), { status: 404 });
+        }
+      } catch (error) {
+        return new Response(JSON.stringify({ error: "Facet transaction not found" }), { status: 404 });
+      }
+
       return new Response(JSON.stringify({ 
-        facetTransactionHash,
+        facetTransactionHash
       }), {
         headers: { "Content-Type": "application/json" },
       });
